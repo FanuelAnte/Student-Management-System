@@ -1,0 +1,10 @@
+com.mycompany.studentmanagementsystem.AdminPage
+com.mycompany.studentmanagementsystem.AdminPage$9
+com.mycompany.studentmanagementsystem.AdminPage$6
+com.mycompany.studentmanagementsystem.AdminPage$5
+com.mycompany.studentmanagementsystem.AdminPage$8
+com.mycompany.studentmanagementsystem.AdminPage$7
+com.mycompany.studentmanagementsystem.AdminPage$2
+com.mycompany.studentmanagementsystem.AdminPage$1
+com.mycompany.studentmanagementsystem.AdminPage$4
+com.mycompany.studentmanagementsystem.AdminPage$3
