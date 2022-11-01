@@ -31,7 +31,7 @@ public class Signup extends javax.swing.JFrame {
         passwordLabel = new javax.swing.JLabel();
         nameField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        signupButton = new javax.swing.JButton();
         loginRedirectLabel = new javax.swing.JLabel();
         loginRedirectButton = new javax.swing.JButton();
 
@@ -50,7 +50,12 @@ public class Signup extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Sign up");
+        signupButton.setText("Sign up");
+        signupButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signupButtonActionPerformed(evt);
+            }
+        });
 
         loginRedirectLabel.setText("Already have an account?");
 
@@ -77,7 +82,7 @@ public class Signup extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(loginRedirectButton))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                        .addComponent(signupButton, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                         .addComponent(nameField)
                         .addComponent(passwordField)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -100,7 +105,7 @@ public class Signup extends javax.swing.JFrame {
                     .addComponent(passwordLabel)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(signupButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginRedirectLabel)
@@ -120,6 +125,11 @@ public class Signup extends javax.swing.JFrame {
         login.show();
         dispose();
     }//GEN-LAST:event_loginRedirectButtonActionPerformed
+
+    private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
+        String userName = nameField.getName();
+        String password = passwordField.getName();
+    }//GEN-LAST:event_signupButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,13 +167,13 @@ public class Signup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton loginRedirectButton;
     private javax.swing.JLabel loginRedirectLabel;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
+    private javax.swing.JButton signupButton;
     private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }

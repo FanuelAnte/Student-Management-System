@@ -37,7 +37,7 @@
                       <Component id="loginRedirectButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jButton1" pref="157" max="32767" attributes="0"/>
+                      <Component id="signupButton" pref="157" max="32767" attributes="0"/>
                       <Component id="nameField" max="32767" attributes="0"/>
                       <Component id="passwordField" max="32767" attributes="0"/>
                   </Group>
@@ -67,7 +67,7 @@
                   <Component id="passwordField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="signupButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="44" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="loginRedirectLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -104,10 +104,13 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="passwordField">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="signupButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sign up"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signupButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="loginRedirectLabel">
       <Properties>
