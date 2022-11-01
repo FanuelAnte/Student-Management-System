@@ -4,6 +4,8 @@
  */
 package com.mycompany.studentmanagementsystem;
 
+import com.mycompany.studentmanagementsystem.Login;
+
 /**
  *
  * @author nonyx
