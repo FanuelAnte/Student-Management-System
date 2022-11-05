@@ -10,43 +10,37 @@ package com.mycompany.Transcript;
  */
 public class Student {
     private String name;
-    private int school_id;
-    private int phone_number;
-    private boolean payment;
+    private int id;
+    private String phone_number;
     
     //constructor
-    public Student(String name, int school_id, int phone_number, boolean payment){
+    public Student(String name, String phone_number){
         this.name = name;
-        this.school_id = school_id;
         this.phone_number = phone_number;
-        this.payment = payment;
+    }
+    public Student(int id, String name, String phone_number){
+        this(name, phone_number);
+        this.id = id;
     }
     
     //getters
     public String getName(){
         return this.name;
     }
-    public int getSchoolId(){
-        return this.school_id;
+    public int getID(){
+        return this.id;
     }
-    public int getPhoneNumber(){
+    public String getPhoneNumber(){
         return this.phone_number;
     }
-    public boolean getPayment(){
-        return this.payment;
-    }
-    
     //setters
     public void setName(String name){
         this.name = name;
     }
-    public void setSchoolId(int school_id){
-        this.school_id = school_id;
+    public void setID(int id){
+        this.id = id;
     }
-    public void setPhoneNumber(int phone_number){
+    public void setPhoneNumber(String phone_number){
         this.phone_number = phone_number;
-    }
-    public void setPayment(boolean payment){
-        this.payment = payment;
     }
 }

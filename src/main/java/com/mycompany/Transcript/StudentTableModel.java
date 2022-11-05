@@ -4,6 +4,8 @@
  */
 package com.mycompany.Transcript;
 
+import com.mycompany.Transcript.Util;
+import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -16,17 +18,15 @@ import javax.swing.table.AbstractTableModel;
  */
 public class StudentTableModel extends AbstractTableModel{
     List<Student> students = new ArrayList<>();
-    String columnNames[] = {"SchoolID", "Name", "PhoneNumber", "Payment", "EditTranscript"};
-    Class<?> columnClasses[] = {Integer.class, String.class, String.class, String.class, String.class};
+    String columnNames[] = {"ID", "Name", "PhoneNumber"};
+    Class<?> columnClasses[] = {Integer.class, String.class, String.class};
     
     Map fieldMap = new HashMap();
     
     StudentTableModel(){
-        fieldMap.put(0, "SchoolID");
+        fieldMap.put(0, "ID");
         fieldMap.put(1, "Name");
         fieldMap.put(2, "PhoneNumber");
-        fieldMap.put(3, "Payment");
-        fieldMap.put(4, "EditTranscript");
     }
     
     @Override
@@ -39,7 +39,10 @@ public class StudentTableModel extends AbstractTableModel{
     }
     @Override
     public Object getValueAt(int rowIndex, int columnIndex){
-        return String.class;
+        var methodName = String.format("get%s", (String) fieldMap.get(columnIndex));
+        Method method = Util.getByMethodName(students.get(rowIndex), methodName);
+        Object result = Util.callMethod(method, students.get(rowIndex));
+        return columnIndex == 0 ? (int) result : (String) result;
     }
     @Override
     public String getColumnName(int columnIndex){
@@ -51,6 +54,16 @@ public class StudentTableModel extends AbstractTableModel{
     }
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex){
-        return true;
+        return columnIndex != 0;
+    }
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex){
+        Student student = students.get(rowIndex);
+        String column = (String) fieldMap.get(columnIndex);
+        var methodName = String.format("%set%s", (String) fieldMap.get(columnIndex));
+        Method method = Util.getByMethodName(students.get(rowIndex), methodName, String.class);
+        Util.callMethod(method, students.get(rowIndex), aValue);
+        
+        fireTableCellUpdated(rowIndex, columnIndex);
     }
 }
