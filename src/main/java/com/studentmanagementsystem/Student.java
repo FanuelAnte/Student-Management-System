@@ -138,4 +138,13 @@ public class Student {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    @Override
+    public String toString() {
+        return getFirstName() + " " + getLastName();
+    }
+    
+    public String getYearAndSemester() {
+        return "Year " + getYear() + " Semester " + getSemester();
+    }
 }

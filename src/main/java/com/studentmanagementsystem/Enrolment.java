@@ -55,6 +55,15 @@ public class Enrolment {
     public boolean isEnrolled() {
         return enrolled;
     }
+    
+    public String getEnrolled() {
+        if (enrolled) {
+            return "Enrolled";
+        } else {
+            return "Not Enrolled";
+        }
+//        return enrolled;
+    }
 
     public void setEnrolled(boolean enrolled) {
         this.enrolled = enrolled;

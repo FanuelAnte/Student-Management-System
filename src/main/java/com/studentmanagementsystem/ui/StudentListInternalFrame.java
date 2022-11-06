@@ -6,6 +6,7 @@ package com.studentmanagementsystem.ui;
 
 import com.studentmanagementsystem.Student;
 import com.studentmanagementsystem.services.StudentListService;
+import javax.swing.JInternalFrame;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
@@ -47,7 +48,6 @@ public class StudentListInternalFrame extends javax.swing.JInternalFrame {
         studentListTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         editBtn = new javax.swing.JButton();
-        entityValue = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -67,8 +67,6 @@ public class StudentListInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        entityValue.setText("Null");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,8 +76,6 @@ public class StudentListInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(entityValue, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(editBtn))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE))
@@ -91,8 +87,7 @@ public class StudentListInternalFrame extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(editBtn)
-                    .addComponent(entityValue))
+                    .addComponent(editBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
                 .addContainerGap())
@@ -103,13 +98,17 @@ public class StudentListInternalFrame extends javax.swing.JInternalFrame {
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         int row = studentListTable.getSelectedRow();
-        String value = studentListTable.getModel().getValueAt(row, 0).toString();
+        int value = (int) studentListTable.getModel().getValueAt(row, 0);
+        
+        JInternalFrame frame = new StudentEnrolmentInternalFrame(value);
+        frame.setVisible(true);
+        this.getParent().add(frame);
+        frame.toFront();
     }//GEN-LAST:event_editBtnActionPerformed
        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton editBtn;
-    private javax.swing.JLabel entityValue;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable studentListTable;
