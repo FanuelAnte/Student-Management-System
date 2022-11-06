@@ -12,36 +12,47 @@ import com.mycompany.Transcript.Course;
  * @author nonyx
  */
 public class Transcript {
-    private char letter_grade;
-    private float grade_point;
-    private float remark;
+    private int id;
+    private String credit_hour;
+    private String letter_grade;
+    private String grade_point;
     
     //constructor
-    public Transcript(char letter_grade, float grade_point, float remark){
+    public Transcript(String credit_hour, String letter_grade, String grade_point){
+        this.credit_hour = credit_hour;
         this.letter_grade = letter_grade;
         this.grade_point = grade_point;
-        this.remark = remark;
+    }
+    public Transcript(int id, String credit_hour, String letter_grade, String grade_point){
+        this(credit_hour, letter_grade, grade_point);
+        this.id = id;
     }
     
     //getters
-    public char getLetterGrade(){
+    public int getID(){
+        return this.id;
+    }
+    public String getCreditHour(){
+        return this.credit_hour;
+    }
+    public String getLetterGrade(){
         return this.letter_grade;
     }
-    public float getGradePoint(){
+    public String getGradePoint(){
         return this.grade_point;
-    }
-    public float getRemark(){
-        return this.remark;
     }
     
     //setters
-    public void setLetterGrade(char letter_grade){
+    public void setID(int id){
+        this.id = id;
+    }
+    public void setCreditHour(String credit_hour){
+        this.credit_hour = credit_hour;
+    }
+    public void setLetterGrade(String letter_grade){
         this.letter_grade = letter_grade;
     }
-    public void setGradePoint(float grade_point){
+    public void setGradePoint(String grade_point){
         this.grade_point = grade_point;
-    }
-    public void setRemark(float remark){
-        this.remark = remark;
     }
 }

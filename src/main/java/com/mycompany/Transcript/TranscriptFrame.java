@@ -4,6 +4,12 @@
  */
 package com.mycompany.Transcript;
 
+import com.mycompany.services.TranscriptService;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nonyx
@@ -13,9 +19,23 @@ public class TranscriptFrame extends javax.swing.JFrame {
     /**
      * Creates new form TranscriptFrame
      */
+    ArrayList<String> courseTitle = new ArrayList<String>();
+    List<Transcript> tempo = new ArrayList<Transcript>();
+    List<Transcript> tempo2 = new ArrayList<Transcript>();
+    
+    
     public TranscriptFrame() {
         model = new TranscriptTableModel();
+        TranscriptService service = new TranscriptService();
+        model.transcripts = service.getAll();
+        
         initComponents();
+        courseTitle.add("Introduction to Computer Systems");
+        courseTitle.add("Fundementals of programmign");
+        courseTitle.add("Discrete Mathematics");
+        courseTitle.add("College English");
+        courseTitle.add("Introduction to Logic & Critical Thinking");
+        courseTitle.add("Geography of Ethiopia & the horn");
     }
 
     /**
@@ -35,6 +55,13 @@ public class TranscriptFrame extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         backButton = new javax.swing.JButton();
         printButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        credithourField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        lettergradeField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        gradepointField = new javax.swing.JTextField();
+        enterButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +81,19 @@ public class TranscriptFrame extends javax.swing.JFrame {
 
         printButton.setText("Print");
 
+        jLabel3.setText("Credit Hour");
+
+        jLabel4.setText("Letter Grade");
+
+        jLabel5.setText("Grade Point");
+
+        enterButton.setText("Enter");
+        enterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,6 +112,8 @@ public class TranscriptFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(studentNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                             .addComponent(idField))
+                        .addGap(164, 164, 164)
+                        .addComponent(enterButton)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -79,25 +121,54 @@ public class TranscriptFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(printButton)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(credithourField)
+                    .addComponent(lettergradeField, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addComponent(gradepointField))
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(studentNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(credithourField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel4)
+                    .addComponent(lettergradeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(gradepointField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(studentNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(enterButton)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
                     .addComponent(printButton))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,6 +179,25 @@ public class TranscriptFrame extends javax.swing.JFrame {
         studentInformationFrame.show();
         dispose();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
+        if(credithourField.getText().equals("") && lettergradeField.getText().equals("") && gradepointField.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Credit hour, Letter grade and Grade point are required");
+        }else{
+            TranscriptService service = new TranscriptService();
+            Transcript transcript = new Transcript(credithourField.getText(), lettergradeField.getText(), gradepointField.getText());
+            try{
+                service.save(transcript);
+            }catch(IOException ex){
+                //...
+            }
+            model.transcripts = service.getAll();
+            model.fireTableDataChanged();
+            credithourField.setText("");
+            lettergradeField.setText("");
+            gradepointField.setText("");
+        }
+    }//GEN-LAST:event_enterButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,11 +236,18 @@ public class TranscriptFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JTextField credithourField;
+    private javax.swing.JButton enterButton;
+    private javax.swing.JTextField gradepointField;
     private javax.swing.JTextField idField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField lettergradeField;
     private javax.swing.JButton printButton;
     private javax.swing.JTextField studentNameField;
     // End of variables declaration//GEN-END:variables

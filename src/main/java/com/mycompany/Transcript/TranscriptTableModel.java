@@ -4,6 +4,8 @@
  */
 package com.mycompany.Transcript;
 
+import com.mycompany.services.TranscriptService;
+import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -16,17 +18,16 @@ import javax.swing.table.AbstractTableModel;
  */
 public class TranscriptTableModel extends AbstractTableModel{
     List<Transcript> transcripts = new ArrayList<>();
-    String columnNames[] = {"StudentName", "CourseTitle", "CreditHour", "LetterGrade", "GradePoint"};
-    Class<?> columnClasses[] = {String.class, String.class, Integer.class, Character.class, Float.class};
+    String columnNames[] = {"ID", "CreditHour", "LetterGrade", "GradePoint"};
+    Class<?> columnClasses[] = {Integer.class, String.class, String.class, String.class};
     
     Map fieldMap = new HashMap();
     
     TranscriptTableModel(){
-        fieldMap.put(0, "StudentName");
-        fieldMap.put(1, "CourseTitle");
-        fieldMap.put(2, "CreditHour");
-        fieldMap.put(3, "LetterGrade");
-        fieldMap.put(4, "GradePoint");
+        fieldMap.put(0, "ID");
+        fieldMap.put(1, "CreditHour");
+        fieldMap.put(2, "LetterGrade");
+        fieldMap.put(3, "GradePoint");
     }
     
     @Override
@@ -39,7 +40,10 @@ public class TranscriptTableModel extends AbstractTableModel{
     }
     @Override
     public Object getValueAt(int rowIndex, int columnIndex){
-        return String.class;
+        var methodName = String.format("get%s", (String) fieldMap.get(columnIndex));
+        Method method = Util.getByMethodName(transcripts.get(rowIndex), methodName);
+        Object result = Util.callMethod(method, transcripts.get(rowIndex));
+        return columnIndex == 0 ? (int) result : (String) result;
     }
     @Override
     public String getColumnName(int columnIndex){
@@ -51,6 +55,19 @@ public class TranscriptTableModel extends AbstractTableModel{
     }
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex){
-        return true;
+        return columnIndex != 0;
+    }
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex){
+        Transcript transcript = transcripts.get(rowIndex);
+        String column = (String) fieldMap.get(columnIndex);
+        var methodName = String.format("set%s", (String) fieldMap.get(columnIndex));
+        Method method = Util.getByMethodName(transcripts.get(rowIndex), methodName, String.class);
+        Util.callMethod(method, transcripts.get(rowIndex), aValue);
+        
+        fireTableCellUpdated(rowIndex, columnIndex);
+        
+        TranscriptService service = new TranscriptService();
+        service.update(transcript, column, (String) aValue);
     }
 }

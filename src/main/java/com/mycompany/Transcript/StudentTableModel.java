@@ -4,22 +4,39 @@
  */
 package com.mycompany.Transcript;
 
-import com.mycompany.Transcript.Util;
+import java.awt.Component;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
  * @author nonyx
  */
+
+
+/*class StudentTableRenderer implements TableCellRenderer{
+    private TableCellRenderer defaultRenderer;
+    public StudentTableRenderer(TableCellRenderer renderer){
+        defaultRenderer = renderer;
+    }
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column){
+        if(value instanceof Component)
+            return (Component)value;
+        return defaultRenderer.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+    }
+}*/
+
 public class StudentTableModel extends AbstractTableModel{
     List<Student> students = new ArrayList<>();
-    String columnNames[] = {"ID", "Name", "PhoneNumber"};
-    Class<?> columnClasses[] = {Integer.class, String.class, String.class};
+    String columnNames[] = {"ID", "Name", "PhoneNumber", "Edit Transcript"};
+    Class<?> columnClasses[] = {Integer.class, String.class, String.class, String.class};
     
     Map fieldMap = new HashMap();
     
@@ -42,7 +59,7 @@ public class StudentTableModel extends AbstractTableModel{
         var methodName = String.format("get%s", (String) fieldMap.get(columnIndex));
         Method method = Util.getByMethodName(students.get(rowIndex), methodName);
         Object result = Util.callMethod(method, students.get(rowIndex));
-        return columnIndex == 0 ? (int) result : (String) result;
+        return columnIndex == 0 ? (int) result : columnIndex == 3 ? "editable": (String) result;
     }
     @Override
     public String getColumnName(int columnIndex){
