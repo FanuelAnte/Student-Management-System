@@ -13,7 +13,7 @@ CREATE TABLE public.student(
 
 CREATE TABLE public.report(
     id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
-    course_title varchar NULL,
+    course_title varchar NOT NULL,
     credit_hour varchar NOT NULL,
     letter_grade varchar NOT NULL,
     grade_point varchar NOT NULL,

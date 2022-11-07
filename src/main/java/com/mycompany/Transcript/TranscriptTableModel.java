@@ -18,16 +18,17 @@ import javax.swing.table.AbstractTableModel;
  */
 public class TranscriptTableModel extends AbstractTableModel{
     List<Transcript> transcripts = new ArrayList<>();
-    String columnNames[] = {"ID", "CreditHour", "LetterGrade", "GradePoint"};
-    Class<?> columnClasses[] = {Integer.class, String.class, String.class, String.class};
+    String columnNames[] = {"ID", "CourseTitle","CreditHour", "LetterGrade", "GradePoint"};
+    Class<?> columnClasses[] = {Integer.class, String.class, String.class, String.class, String.class};
     
     Map fieldMap = new HashMap();
     
     TranscriptTableModel(){
         fieldMap.put(0, "ID");
-        fieldMap.put(1, "CreditHour");
-        fieldMap.put(2, "LetterGrade");
-        fieldMap.put(3, "GradePoint");
+        fieldMap.put(1, "CourseTitle");
+        fieldMap.put(2, "CreditHour");
+        fieldMap.put(3, "LetterGrade");
+        fieldMap.put(4, "GradePoint");
     }
     
     @Override

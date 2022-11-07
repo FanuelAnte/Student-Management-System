@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class TranscriptService {
     public void save(Transcript transcript) throws IOException{
         String sql = String.format(
-        "INSERT INTO report(credit_hour, letter_grade, grade_point) VALUES('%s', '%s', '%s')", transcript.getCreditHour(), transcript.getLetterGrade(), transcript.getGradePoint());
+        "INSERT INTO report(course_title, credit_hour, letter_grade, grade_point) VALUES('%s', '%s', '%s', '%s')", transcript.getCourseTitle(), transcript.getCreditHour(), transcript.getLetterGrade(), transcript.getGradePoint());
         DatabaseService service = new DatabaseService();
         service.execute(sql);
     }
@@ -38,6 +38,7 @@ public class TranscriptService {
                 data.add(
                     new Transcript(
                         rs.getInt("id"),
+                        rs.getString("course_title"),
                         rs.getString("credit_hour"),
                         rs.getString("letter_grade"),
                         rs.getString("grade_point"))

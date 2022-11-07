@@ -14,6 +14,9 @@ public class Student {
     private String phone_number;
     
     //constructor
+    public Student(){
+        //...
+    }
     public Student(String name, String phone_number){
         this.name = name;
         this.phone_number = phone_number;

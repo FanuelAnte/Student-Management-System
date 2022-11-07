@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class StudentInformationFrame extends javax.swing.JFrame {
     StudentTableModel model;
+    public static String foreign_name;
+    public static int foreign_id;
     /**
      * Creates new form StudentInformationFrame
      */
@@ -153,7 +155,13 @@ public class StudentInformationFrame extends javax.swing.JFrame {
         if((int) idSpinner.getValue() == 0){
             JOptionPane.showMessageDialog(this, "No student with id number 0");
         }else{
-            System.out.println((int) idSpinner.getValue());
+            if((int) idSpinner.getValue() > 0 && (int) idSpinner.getValue() <= model.students.size()){
+                foreign_name = model.students.get((int) idSpinner.getValue() - 1).getName();
+                foreign_id = model.students.get((int) idSpinner.getValue() - 1).getID();
+                TranscriptFrame transcriptFrame = new TranscriptFrame();
+                transcriptFrame.show();
+                dispose();
+            }
         }
     }//GEN-LAST:event_editButtonActionPerformed
 
