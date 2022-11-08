@@ -17,7 +17,7 @@ import java.sql.Statement;
 public class DatabaseService {
     private final String url = "jdbc:postgresql://localhost:5432/transcript";
     private final String user = "postgres";
-    private final String password = "chidori";
+    private final String password = "mysecretpassword";
     
     public Connection connect(){
         Connection conn = null;

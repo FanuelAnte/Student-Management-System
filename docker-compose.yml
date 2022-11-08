@@ -1,14 +1,14 @@
 version: '3'
 
 services:
-  database:
+  db:
     image: postgres:latest
     environment:
-      POSTGRES_PASSWORD: chidori
+      POSTGRES_PASSWORD: mysecretpassword
     volumes:
-      - database_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
 volumes:
-    database_data: {}
+    db_data: {}
