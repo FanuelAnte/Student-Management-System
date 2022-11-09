@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author nonyx
  */
-public class TranscriptFrame extends javax.swing.JInternalFrame {
+public class TranscriptFrame extends javax.swing.JFrame {
     TranscriptTableModel model;
     StudentInformationFrame studentInformationFrame = new StudentInformationFrame();
     /**
@@ -193,7 +193,7 @@ public class TranscriptFrame extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Credit hour, Letter grade and Grade point are required");
         }else{
             TranscriptService service = new TranscriptService();
-            Transcript transcript = new Transcript(courseTitle.get(model.transcripts.size()), credithourField.getText(), lettergradeField.getText(), gradepointField.getText());
+            Transcript transcript = new Transcript(courseTitle.get(model.transcripts.size()), Integer.parseInt(credithourField.getText()),  lettergradeField.getText().charAt(0), Integer.parseInt(gradepointField.getText()));
             try{
                 service.save(transcript);
             }catch(IOException ex){

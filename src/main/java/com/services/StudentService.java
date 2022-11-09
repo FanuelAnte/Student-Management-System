@@ -39,7 +39,7 @@ public class StudentService {
                     new Student(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getString("phone_number"))
+                        rs.getInt("phone_number"))
                 );
             }
         }catch(SQLException ex){

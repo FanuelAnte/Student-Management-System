@@ -39,9 +39,9 @@ public class TranscriptService {
                     new Transcript(
                         rs.getInt("id"),
                         rs.getString("course_title"),
-                        rs.getString("credit_hour"),
-                        rs.getString("letter_grade"),
-                        rs.getString("grade_point"))
+                        rs.getInt("credit_hour"),
+                        rs.getString("letter_grade").charAt(0),
+                        rs.getInt("grade_point"))
                 );
             }
         }catch(SQLException ex){

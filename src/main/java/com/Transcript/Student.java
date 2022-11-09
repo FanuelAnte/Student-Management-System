@@ -11,17 +11,17 @@ package com.Transcript;
 public class Student {
     private String name;
     private int id;
-    private String phone_number;
+    private int phone_number;
     
     //constructor
     public Student(){
         //...
     }
-    public Student(String name, String phone_number){
+    public Student(String name, int phone_number){
         this.name = name;
         this.phone_number = phone_number;
     }
-    public Student(int id, String name, String phone_number){
+    public Student(int id, String name, int phone_number){
         this(name, phone_number);
         this.id = id;
     }
@@ -33,7 +33,7 @@ public class Student {
     public int getID(){
         return this.id;
     }
-    public String getPhoneNumber(){
+    public int getPhoneNumber(){
         return this.phone_number;
     }
     //setters
@@ -43,7 +43,7 @@ public class Student {
     public void setID(int id){
         this.id = id;
     }
-    public void setPhoneNumber(String phone_number){
+    public void setPhoneNumber(int phone_number){
         this.phone_number = phone_number;
     }
 }

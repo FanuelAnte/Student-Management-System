@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author nonyx
  */
-public class StudentInformationFrame extends javax.swing.JInternalFrame {
+public class StudentInformationFrame extends javax.swing.JFrame {
     StudentTableModel model;
     public static String foreign_name;
     public static int foreign_id;
@@ -138,7 +138,7 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Name and phone number are required!");
         }else{
             StudentService service = new StudentService();
-            Student student = new Student(nameField.getText(), phoneNumberField.getText());
+            Student student = new Student(nameField.getText(), Integer.parseInt(phoneNumberField.getText()));
             try{
                 service.save(student);
             }catch(IOException ex){

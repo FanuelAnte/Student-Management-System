@@ -19,7 +19,7 @@ import javax.swing.table.AbstractTableModel;
 public class TranscriptTableModel extends AbstractTableModel{
     List<Transcript> transcripts = new ArrayList<>();
     String columnNames[] = {"ID", "CourseTitle","CreditHour", "LetterGrade", "GradePoint"};
-    Class<?> columnClasses[] = {Integer.class, String.class, String.class, String.class, String.class};
+    Class<?> columnClasses[] = {Integer.class, String.class, Integer.class, Character.class, Integer.class};
     
     Map fieldMap = new HashMap();
     
@@ -44,7 +44,7 @@ public class TranscriptTableModel extends AbstractTableModel{
         var methodName = String.format("get%s", (String) fieldMap.get(columnIndex));
         Method method = Util.getByMethodName(transcripts.get(rowIndex), methodName);
         Object result = Util.callMethod(method, transcripts.get(rowIndex));
-        return columnIndex == 0 ? (int) result : (String) result;
+        return columnIndex == 0 || columnIndex == 2 || columnIndex == 4 ? (int) result : columnIndex == 3 ? (char) result : (String) result;
     }
     @Override
     public String getColumnName(int columnIndex){

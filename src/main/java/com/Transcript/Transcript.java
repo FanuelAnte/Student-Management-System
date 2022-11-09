@@ -4,9 +4,6 @@
  */
 package com.Transcript;
 
-import com.Transcript.Student;
-import com.Transcript.Course;
-
 /**
  *
  * @author nonyx
@@ -14,23 +11,23 @@ import com.Transcript.Course;
 public class Transcript {
     private int id;
     private String course_title;
-    private String credit_hour;
-    private String letter_grade;
-    private String grade_point;
+    private int credit_hour;
+    private char letter_grade;
+    private int grade_point;
     
     //constructor
-    public Transcript(String course_title, String credit_hour, String letter_grade, String grade_point){
+    public Transcript(String course_title, int credit_hour, char letter_grade, int grade_point){
         this.course_title = course_title;
         this.credit_hour = credit_hour;
         this.letter_grade = letter_grade;
         this.grade_point = grade_point;
     }
-    public Transcript(String credit_hour, String letter_grade, String grade_point){
+    public Transcript(int credit_hour, char letter_grade, int grade_point){
         this.credit_hour = credit_hour;
         this.letter_grade = letter_grade;
         this.grade_point = grade_point;
     }
-    public Transcript(int id, String course_title, String credit_hour, String letter_grade, String grade_point){
+    public Transcript(int id, String course_title, int credit_hour, char letter_grade, int grade_point){
         this(course_title, credit_hour, letter_grade, grade_point);
         this.id = id;
     }
@@ -42,13 +39,13 @@ public class Transcript {
     public String getCourseTitle(){
         return this.course_title;
     }
-    public String getCreditHour(){
+    public int getCreditHour(){
         return this.credit_hour;
     }
-    public String getLetterGrade(){
+    public char getLetterGrade(){
         return this.letter_grade;
     }
-    public String getGradePoint(){
+    public int getGradePoint(){
         return this.grade_point;
     }
     
@@ -59,13 +56,13 @@ public class Transcript {
     public void setCourseTitle(String course_title){
         this.course_title = course_title;
     }
-    public void setCreditHour(String credit_hour){
+    public void setCreditHour(int credit_hour){
         this.credit_hour = credit_hour;
     }
-    public void setLetterGrade(String letter_grade){
+    public void setLetterGrade(char letter_grade){
         this.letter_grade = letter_grade;
     }
-    public void setGradePoint(String grade_point){
+    public void setGradePoint(int grade_point){
         this.grade_point = grade_point;
     }
 }
