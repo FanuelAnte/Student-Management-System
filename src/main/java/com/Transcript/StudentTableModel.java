@@ -35,8 +35,8 @@ import javax.swing.table.TableCellRenderer;
 
 public class StudentTableModel extends AbstractTableModel{
     List<Student> students = new ArrayList<>();
-    String columnNames[] = {"ID", "Name", "PhoneNumber", "Edit Transcript"};
-    Class<?> columnClasses[] = {Integer.class, String.class, Integer.class, String.class};
+    String columnNames[] = {"ID", "Name", "PhoneNumber", "Email", "Major", "Gender"};
+    Class<?> columnClasses[] = {Integer.class, String.class, Integer.class, String.class, String.class, String.class};
     
     Map fieldMap = new HashMap();
     
@@ -44,6 +44,9 @@ public class StudentTableModel extends AbstractTableModel{
         fieldMap.put(0, "ID");
         fieldMap.put(1, "Name");
         fieldMap.put(2, "PhoneNumber");
+        fieldMap.put(3, "Email");
+        fieldMap.put(4, "Major");
+        fieldMap.put(5, "Gender");
     }
     
     @Override
@@ -59,7 +62,7 @@ public class StudentTableModel extends AbstractTableModel{
         var methodName = String.format("get%s", (String) fieldMap.get(columnIndex));
         Method method = Util.getByMethodName(students.get(rowIndex), methodName);
         Object result = Util.callMethod(method, students.get(rowIndex));
-        return columnIndex == 0 || columnIndex == 2 ? (int) result : columnIndex == 3 ? "editable": (String) result;
+        return columnIndex == 0 || columnIndex == 2 ? (int) result : (String) result;
     }
     @Override
     public String getColumnName(int columnIndex){
