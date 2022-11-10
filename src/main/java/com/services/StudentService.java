@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class StudentService {
     public void save(Student student) throws IOException{
         String sql = String.format(
-        "INSERT INTO student(name, phone_number, email, major, gender) VALUES ('%s', '%s', '%s', '%s', '%s')", student.getName(), student.getPhoneNumber(), student.getEmail(), student.getMajor(), student.getGender());
+        "INSERT INTO student(name, phone_number, birth_date, email, major, gender) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')", student.getName(), student.getPhoneNumber(), student.getBirthDate(), student.getEmail(), student.getMajor(), student.getGender());
         DatabaseService service = new DatabaseService();
         service.execute(sql);
     }
@@ -39,7 +39,8 @@ public class StudentService {
                     new Student(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getInt("phone_number"),
+                        rs.getString("phone_number"),
+                        rs.getString("birth_date"),
                         rs.getString("email"),
                         rs.getString("major"),
                         rs.getString("gender"))

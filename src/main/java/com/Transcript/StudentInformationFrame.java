@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author nonyx
  */
-public class StudentInformationFrame extends javax.swing.JFrame {
+public class StudentInformationFrame extends javax.swing.JInternalFrame {
     StudentTableModel model;
     public static String foreign_name;
     public static int foreign_id;
@@ -69,6 +69,8 @@ public class StudentInformationFrame extends javax.swing.JFrame {
         majorComboBox = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         genderComboBox = new javax.swing.JComboBox<>();
+        birthDateField = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Students' Information");
@@ -102,6 +104,14 @@ public class StudentInformationFrame extends javax.swing.JFrame {
 
         jLabel6.setText("Gender");
 
+        birthDateField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                birthDateFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("BirthDate");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,7 +127,8 @@ public class StudentInformationFrame extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel1)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -125,7 +136,8 @@ public class StudentInformationFrame extends javax.swing.JFrame {
                             .addComponent(nameField, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                             .addComponent(phoneNumberField)
                             .addComponent(emailField)
-                            .addComponent(addButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(addButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(birthDateField))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -158,7 +170,12 @@ public class StudentInformationFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(birthDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,8 +184,8 @@ public class StudentInformationFrame extends javax.swing.JFrame {
                                 .addComponent(idSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
                                 .addComponent(editButton))
-                            .addComponent(jLabel2))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(majorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -176,7 +193,7 @@ public class StudentInformationFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(genderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addButton)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,7 +208,7 @@ public class StudentInformationFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Name, phone number and email are required!");
         }else{
             StudentService service = new StudentService();
-            Student student = new Student(nameField.getText(), Integer.parseInt(phoneNumberField.getText()), emailField.getText(), (String) majorComboBox.getSelectedItem(), (String)genderComboBox.getSelectedItem());
+            Student student = new Student(nameField.getText(), phoneNumberField.getText(), birthDateField.getText(), emailField.getText(), (String) majorComboBox.getSelectedItem(), (String)genderComboBox.getSelectedItem());
             try{
                 service.save(student);
             }catch(IOException ex){
@@ -217,6 +234,10 @@ public class StudentInformationFrame extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_editButtonActionPerformed
+
+    private void birthDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthDateFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_birthDateFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,6 +276,7 @@ public class StudentInformationFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JTextField birthDateField;
     private javax.swing.JButton editButton;
     private javax.swing.JTextField emailField;
     private javax.swing.JComboBox<String> genderComboBox;
@@ -265,6 +287,7 @@ public class StudentInformationFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> majorComboBox;

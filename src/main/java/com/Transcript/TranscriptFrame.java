@@ -14,15 +14,13 @@ import javax.swing.JOptionPane;
  *
  * @author nonyx
  */
-public class TranscriptFrame extends javax.swing.JFrame {
+public class TranscriptFrame extends javax.swing.JInternalFrame {
     TranscriptTableModel model;
     StudentInformationFrame studentInformationFrame = new StudentInformationFrame();
     /**
      * Creates new form TranscriptFrame
      */
     ArrayList<String> courseTitle = new ArrayList<String>();
-    List<Transcript> tempo = new ArrayList<Transcript>();
-    List<Transcript> tempo2 = new ArrayList<Transcript>();
     
     
     public TranscriptFrame() {

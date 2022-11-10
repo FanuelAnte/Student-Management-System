@@ -11,7 +11,8 @@ package com.Transcript;
 public class Student {
     private String name;
     private int id;
-    private int phone_number;
+    private String phone_number;
+    private String birth_date;
     private String email;
     private String major;
     private String gender;
@@ -20,15 +21,16 @@ public class Student {
     public Student(){
         //...
     }
-    public Student(String name, int phone_number, String email, String major, String gender){
+    public Student(String name, String phone_number, String birth_date, String email, String major, String gender){
         this.name = name;
         this.phone_number = phone_number;
+        this.birth_date = birth_date;
         this.email = email;
         this.major = major;
         this.gender = gender;
     }
-    public Student(int id, String name, int phone_number, String email, String major, String gender){
-        this(name, phone_number, email, major, gender);
+    public Student(int id, String name, String phone_number, String birth_date, String email, String major, String gender){
+        this(name, phone_number, birth_date, email, major, gender);
         this.id = id;
     }
     
@@ -39,8 +41,11 @@ public class Student {
     public int getID(){
         return this.id;
     }
-    public int getPhoneNumber(){
+    public String getPhoneNumber(){
         return this.phone_number;
+    }
+    public String getBirthDate(){
+        return this.birth_date;
     }
     public String getEmail(){
         return this.email;
@@ -58,8 +63,11 @@ public class Student {
     public void setID(int id){
         this.id = id;
     }
-    public void setPhoneNumber(int phone_number){
+    public void setPhoneNumber(String phone_number){
         this.phone_number = phone_number;
+    }
+    public void setBirthDate(String birth_date){
+        this.birth_date = birth_date;
     }
     public void setEmail(String email){
         this.email = email;
