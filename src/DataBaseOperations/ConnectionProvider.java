@@ -11,11 +11,12 @@ import java.sql.*;
  * @author ALE
  */
 public class ConnectionProvider {
+    
 
     public static Connection getCon() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/rgr?useSSL=false", "root", "32120832asdASD!@#");
+//            Class.forName("com.postgresql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "32120832asdASD!@#");
             return con;
         } catch (Exception e) {
             return null;
