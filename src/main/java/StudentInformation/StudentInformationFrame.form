@@ -45,9 +45,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="firstName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="s"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameActionPerformed"/>
       </Events>
@@ -71,9 +68,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="lastName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="s"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastNameActionPerformed"/>
       </Events>
@@ -97,9 +91,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="email">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="s"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailActionPerformed"/>
       </Events>
@@ -229,6 +220,7 @@
         <Property name="text" type="java.lang.String" value="Add Student"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addStudentBtnMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addStudentBtnActionPerformed"/>
       </Events>
       <Constraints>

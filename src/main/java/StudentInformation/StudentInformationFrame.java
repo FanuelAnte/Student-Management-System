@@ -7,6 +7,7 @@ package StudentInformation;
 import javax.swing.JOptionPane;
 import StudentServices.StudentService;
 import java.io.IOException;
+import StudentInformation.MainFrame;
 
 /**
  *
@@ -62,7 +63,6 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
         jLabel2.setText("First Name:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 17, -1, -1));
 
-        firstName.setText("s");
         firstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameActionPerformed(evt);
@@ -74,7 +74,6 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
         jLabel3.setText("Last Name:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 54, -1, -1));
 
-        lastName.setText("s");
         lastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameActionPerformed(evt);
@@ -86,7 +85,6 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
         jLabel4.setText("Email:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 102, -1, -1));
 
-        email.setText("s");
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
@@ -143,6 +141,11 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
 
         addStudentBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         addStudentBtn.setText("Add Student");
+        addStudentBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addStudentBtnMouseClicked(evt);
+            }
+        });
         addStudentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addStudentBtnActionPerformed(evt);
@@ -210,6 +213,13 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_addStudentBtnActionPerformed
+
+    private void addStudentBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addStudentBtnMouseClicked
+        StudentInformationTable sit = new StudentInformationTable();
+        MainFrame m = new MainFrame();
+        m.add(sit); 
+        
+    }//GEN-LAST:event_addStudentBtnMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
