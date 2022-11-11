@@ -44,6 +44,7 @@ public class StudentService {
             while(rs.next()){
                 data.add(
                     new Student(
+                        rs.getInt("id"),
                         rs.getString("first_name"),
                         rs.getString("last_name"),
                         rs.getString("email"),

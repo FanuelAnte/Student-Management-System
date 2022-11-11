@@ -29,6 +29,20 @@ public class Student {
         this.gender = gender;
         
     }
+    
+    
+    public Student(int id, String firstname, String lastname, String email, String phone_number, String major, Date date_of_birth, String gender) {
+        this.id = id;
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.email = email;
+        this.phoneNumber = phone_number;
+        this.major = major;
+        this.dateOfBirth = date_of_birth;
+        this.gender = gender;
+        
+    }
+
 
     /**
      * @return the ID
