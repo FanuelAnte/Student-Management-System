@@ -5,15 +5,21 @@
 package student_managment_system;
 
 import Design.*;
+import com.studentmanagementsystem.ui.StudentListInternalFrame;
+import java.awt.Color;
+import java.awt.Dimension;
+
 import java.awt.Frame;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author ALazar
  */
 public class MainFrame extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form MainFrame
      */
@@ -56,6 +62,11 @@ public class MainFrame extends javax.swing.JFrame {
         studentRegistrationFormBtn.setText("Student Registration Form");
         studentRegistrationFormBtn.setToolTipText("Click to register a student");
         studentRegistrationFormBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        studentRegistrationFormBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentRegistrationFormBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(studentRegistrationFormBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, 300, 60));
 
         transcriptInformationBtn.setBackground(new java.awt.Color(63, 63, 65));
@@ -116,7 +127,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 10, -1, 50));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(216, 216, 216));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,17 +146,17 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        int a = JOptionPane.showConfirmDialog(this, "Do you want to logout?","Select", JOptionPane.YES_NO_OPTION);
-        if (a==0){
+        int a = JOptionPane.showConfirmDialog(this, "Do you want to logout?", "Select", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
             this.setVisible(false);
-            new Login().setVisible(true);   
+            new Login().setVisible(true);
         }
-        
+
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        int a = JOptionPane.showConfirmDialog(this, "Are you sure!", "Select",JOptionPane.YES_NO_OPTION);
-        if (a==0){
+        int a = JOptionPane.showConfirmDialog(this, "Are you sure!", "Select", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_jLabel6MouseClicked
@@ -153,6 +164,13 @@ public class MainFrame extends javax.swing.JFrame {
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         this.setState(Frame.ICONIFIED);
     }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void studentRegistrationFormBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentRegistrationFormBtnActionPerformed
+        this.setVisible(false);
+        new StudentPanelFrame().setVisible(true);
+        
+        
+    }//GEN-LAST:event_studentRegistrationFormBtnActionPerformed
 
     /**
      * @param args the command line arguments
