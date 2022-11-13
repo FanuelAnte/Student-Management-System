@@ -171,8 +171,7 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Name, phone number and email are required!");
         } else {
             StudentService service = new StudentService();
-            Student student = new Student(nameField.getText(), phoneNumberField.getText(), dateField.getDate().toString(), emailField.getText(), (String) majorComboBox.getSelectedItem(), (String) genderComboBox.getSelectedItem());
-            System.out.println(dateField.getDate());
+            Student student = new Student(nameField.getText(), phoneNumberField.getText(), dateField.getDate(), emailField.getText(), (String) majorComboBox.getSelectedItem(), (String) genderComboBox.getSelectedItem());
             try {
                 service.save(student);
             } catch (IOException ex) {

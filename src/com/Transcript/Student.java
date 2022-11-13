@@ -14,7 +14,7 @@ public class Student {
     private String name;
     private int id;
     private String phone_number;
-    private String date_of_birth;
+    private Date Date;
     private String email;
     private String major;
     private String gender;
@@ -23,16 +23,16 @@ public class Student {
     public Student(){
         //...
     }
-    public Student(String name, String phone_number, String date_of_birth, String email, String major, String gender){
+    public Student(String name, String phone_number, Date Date, String email, String major, String gender){
         this.name = name;
         this.phone_number = phone_number;
-        this.date_of_birth = date_of_birth;
+        this.Date = Date;
         this.email = email;
         this.major = major;
         this.gender = gender;
     }
-    public Student(int id, String name, String phone_number, String date_of_birth, String email, String major, String gender){
-        this(name, phone_number, date_of_birth, email, major, gender);
+    public Student(int id, String name, String phone_number, Date Date, String email, String major, String gender){
+        this(name, phone_number, Date, email, major, gender);
         this.id = id;
     }
     
@@ -46,8 +46,8 @@ public class Student {
     public String getPhoneNumber(){
         return this.phone_number;
     }
-    public String getBirthDate(){
-        return this.date_of_birth;
+    public Date getDate(){
+        return this.Date;
     }
     public String getEmail(){
         return this.email;
@@ -68,8 +68,8 @@ public class Student {
     public void setPhoneNumber(String phone_number){
         this.phone_number = phone_number;
     }
-    public void setBirthDate(String birth_date){
-        this.date_of_birth = birth_date;
+    public void setDate(Date Date){
+        this.Date = Date;
     }
     public void setEmail(String email){
         this.email = email;

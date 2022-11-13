@@ -8,10 +8,10 @@ CREATE TABLE public.student(
     id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
     "name" varchar NOT NULL,
     phone_number varchar NOT NULL,
-    date_of_birth date NOT NULL,
-    email varchar NOT NULL,
-    major varchar NOT NULL,
-    gender varchar NOT NULL,
+    "date" date NOT NULL,
+    Email varchar NOT NULL,
+    Major varchar NOT NULL,
+    Gender varchar NOT NULL,
     CONSTRAINT student_pk PRIMARY KEY (id)
 );
 

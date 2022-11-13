@@ -36,8 +36,8 @@ import javax.swing.table.TableCellRenderer;
 
 public class StudentTableModel extends AbstractTableModel{
     List<Student> students = new ArrayList<>();
-    String columnNames[] = {"ID", "Name", "PhoneNumber", "date_of_birth", "Email", "Major", "Gender"};
-    Class<?> columnClasses[] = {Integer.class, String.class, String.class, String.class, String.class, String.class, String.class};
+    String columnNames[] = {"ID", "Name", "PhoneNumber", "Date", "Email", "Major", "Gender"};
+    Class<?> columnClasses[] = {Integer.class, String.class, String.class, Date.class, String.class, String.class, String.class};
     
     Map fieldMap = new HashMap();
     
@@ -45,7 +45,7 @@ public class StudentTableModel extends AbstractTableModel{
         fieldMap.put(0, "ID");
         fieldMap.put(1, "Name");
         fieldMap.put(2, "PhoneNumber");
-        fieldMap.put(3, "date_of_birth");
+        fieldMap.put(3, "Date");
         fieldMap.put(4, "Email");
         fieldMap.put(5, "Major");
         fieldMap.put(6, "Gender");
@@ -64,7 +64,7 @@ public class StudentTableModel extends AbstractTableModel{
         var methodName = String.format("get%s", (String) fieldMap.get(columnIndex));
         Method method = Util.getByMethodName(students.get(rowIndex), methodName);
         Object result = Util.callMethod(method, students.get(rowIndex));
-        return columnIndex == 0 ? (int) result : (String) result;
+        return columnIndex == 0 ? (int) result : (Object) result;
     }
     @Override
     public String getColumnName(int columnIndex){

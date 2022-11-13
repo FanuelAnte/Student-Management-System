@@ -4,10 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/student_managment_system/MainFrame.java</file>
+            <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/student_managment_system/Student_Managment_System.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/studentmanagementsystem/model/Instructor.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/Design/PanelRound.java</file>
-            <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/Transcript/StudentTableModel.java</file>
+            <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/DataBaseOperations/Tables.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/student_managment_system/Signup.java</file>
+            <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/Transcript/StudentTableModel.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/Transcript/TranscriptTableModel.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/transcript.sql</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/studentmanagementsystem/ui/StudentEnrolmentTableModel.java</file>
@@ -20,11 +22,13 @@
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/studentmanagementsystem/model/Student.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/model/Registrar.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/studentmanagementsystem/ui/StudentEnrolmentInternalFrame.java</file>
+            <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/DataBaseOperations/RegistrarDao.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/Transcript/TranscriptFrame.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/services/DatabaseService.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/studentmanagementsystem/ui/TestParentFrame.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/pom.xml</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/student_managment_system/Login.java</file>
+            <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/services/TranscriptService.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/course.sql</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/studentmanagementsystem/services/StudentListService.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/services/StudentService.java</file>
@@ -33,7 +37,9 @@
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/Transcript/Transcript.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/studentmanagementsystem/services/StudentEnrolmentService.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/Transcript/StudentInformationFrame.java</file>
+            <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/Transcript/Util.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/studentmanagementsystem/services/DatabaseService.java</file>
+            <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/DataBaseOperations/DbOperations.java</file>
             <file>file:/C:/MyFiles/coding/Java%20class%20project/The%20final%20sms/Student-Management-System/src/com/Transcript/Student.java</file>
         </group>
     </open-files>

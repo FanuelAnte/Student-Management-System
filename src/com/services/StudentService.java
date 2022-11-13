@@ -21,13 +21,14 @@ public class StudentService {
 
     public void save(Student student) throws IOException {
         String sql
-                = "INSERT INTO student(name, phone_number, date_of_birth, email, major, gender) VALUES ("
-                + "'" + student.getName() + "', "
-                + "'" + student.getPhoneNumber() + "', "
-                + "'" + student.getBirthDate() + "', "
-                + "'" + student.getEmail() + "', "
-                + "'" + student.getMajor() + "', "
-                + "'" + student.getGender() + "')";
+                = String.format(
+                        "INSERT INTO student(name, phone_number, Date, email, major, gender) VALUES ('%s','%s','%s','%s','%s','%S')",student.getName(),student.getPhoneNumber(), student.getDate(), student.getEmail(), student.getMajor(), student.getGender());
+//                + "'" + student.getName() + "', "
+//                + "'" + student.getPhoneNumber() + "', "
+//                + "'" + student.getDate() + "', "
+//                + "'" + student.getEmail() + "', "
+//                + "'" + student.getMajor() + "', "
+//                + "'" + student.getGender() + "')");
 
         DatabaseService service = new DatabaseService();
         service.execute(sql);
@@ -46,7 +47,7 @@ public class StudentService {
                                 rs.getInt("id"),
                                 rs.getString("name"),
                                 rs.getString("phone_number"),
-                                rs.getString("date_of_birth"),
+                                rs.getDate("Date"),
                                 rs.getString("email"),
                                 rs.getString("major"),
                                 rs.getString("gender"))
