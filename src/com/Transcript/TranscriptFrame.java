@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFileChooser;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -63,8 +64,6 @@ public class TranscriptFrame extends javax.swing.JInternalFrame {
         studentIDField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        backButton = new javax.swing.JButton();
-        printButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         credithourField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -73,6 +72,8 @@ public class TranscriptFrame extends javax.swing.JInternalFrame {
         gradepointField = new javax.swing.JTextField();
         enterButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        backButton = new javax.swing.JButton();
+        printButton = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -95,23 +96,7 @@ public class TranscriptFrame extends javax.swing.JInternalFrame {
         jTable1.setModel(model);
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 189, 512, 169));
-
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 376, -1, -1));
-
-        printButton.setText("Print");
-        printButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(printButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 376, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 189, 770, 270));
 
         jLabel3.setText("Credit Hour");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 12, -1, -1));
@@ -135,15 +120,39 @@ public class TranscriptFrame extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(216, 216, 216));
 
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
+        printButton.setText("Print");
+        printButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(327, 327, 327)
+                .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(597, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(483, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton)
+                    .addComponent(printButton))
+                .addGap(139, 139, 139))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 650));
@@ -171,37 +180,33 @@ public class TranscriptFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_enterButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        StudentInformationFrame studentInformationFrame = new StudentInformationFrame();
-        studentInformationFrame.show();
+        JInternalFrame sf = new StudentInformationFrame();
+        sf.setVisible(true);
+        getParent().add(sf);
         dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
     @SuppressWarnings("empty-statement")
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Specify a file save");
+        fileChooser.setDialogTitle("Choose your file path");
         int userSelection = fileChooser.showSaveDialog(this);
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = fileChooser.getSelectedFile();
-            //lets write to file
-            //I have added some file handling concept here. What do you say???
+               //I have added some file handling concept here. What do you say???
             try {
                 FileWriter fw = new FileWriter(fileToSave);
                 BufferedWriter bw = new BufferedWriter(fw);
-                for (int i = 0; i < jTable1.getRowCount();
-                i++
-                
-                    ) {
-                    for (int j = 0; j<jTable1.getColumnCount();
-                    j++
-                    
-                        ) {
+                bw.write(new TranscriptTableModel().getColumnNames());
+                bw.newLine();
+                for (int i = 0; i < jTable1.getRowCount(); i++) {
+                    for (int j = 0; j < jTable1.getColumnCount(); j++) {
                         //write
                         bw.write(jTable1.getValueAt(i, j).toString() + ",");
                     }
                     bw.newLine();//record per line 
                 }
-                JOptionPane.showMessageDialog(this, "SUCCESSFULLY LOADED", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "SUCCESSFULLY SAVED", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
                 bw.close();
                 fw.close();
             } catch (IOException ex) {

@@ -7,6 +7,8 @@ package com.Transcript;
 import com.services.StudentService;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,14 +16,16 @@ import javax.swing.JOptionPane;
  * @author nonyx
  */
 public class StudentInformationFrame extends javax.swing.JInternalFrame {
+
     StudentTableModel model;
     public static String foreign_name;
     public static int foreign_id;
-    
+
     //major list
     ArrayList<String> majorList = new ArrayList<String>();
     //gender list
     ArrayList<String> genderList = new ArrayList<String>();
+
     /**
      * Creates new form StudentInformationFrame
      */
@@ -36,10 +40,10 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
         //adding fields to genderList
         genderList.add("Male");
         genderList.add("Female");
-        for(String major : majorList){
+        for (String major : majorList) {
             majorComboBox.addItem(major);
         }
-        for(String gender : genderList){
+        for (String gender : genderList) {
             genderComboBox.addItem(gender);
         }
     }
@@ -69,9 +73,9 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
         majorComboBox = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         genderComboBox = new javax.swing.JComboBox<>();
-        birthDateField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        dateField = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(216, 216, 216));
         setClosable(true);
@@ -84,29 +88,31 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
         jTable1.setModel(model);
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 328, 895, 216));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 328, 1140, 290));
 
         jLabel1.setText("Name");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 54, -1, -1));
-        getContentPane().add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 48, 105, -1));
+        getContentPane().add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 48, 210, -1));
 
         jLabel3.setText("Phone");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 88, -1, -1));
-        getContentPane().add(phoneNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 82, 105, -1));
+        getContentPane().add(phoneNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 82, 210, -1));
 
-        addButton.setText("Add");
+        addButton.setText("Add Student");
+        addButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 282, -1, -1));
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 282, 120, -1));
 
         jLabel2.setText("Enter ID to edit transcript");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 106, -1, -1));
-        getContentPane().add(idSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(791, 134, -1, -1));
+        getContentPane().add(idSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(791, 134, 80, -1));
 
-        editButton.setText("Edit");
+        editButton.setText(" Edit Transcript");
+        editButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editButtonMouseClicked(evt);
@@ -121,24 +127,17 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Email");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 122, -1, -1));
-        getContentPane().add(emailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 116, 105, -1));
+        getContentPane().add(emailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 116, 210, -1));
 
         jLabel5.setText("Major");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 206, -1, -1));
 
-        getContentPane().add(majorComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 206, -1, -1));
+        getContentPane().add(majorComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 206, 210, -1));
 
         jLabel6.setText("Gender");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 250, -1, -1));
 
-        getContentPane().add(genderComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 250, -1, -1));
-
-        birthDateField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                birthDateFieldActionPerformed(evt);
-            }
-        });
-        getContentPane().add(birthDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 150, 105, -1));
+        getContentPane().add(genderComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 250, 90, -1));
 
         jLabel7.setText("BirthDate");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 156, -1, -1));
@@ -149,27 +148,34 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1190, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(894, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(152, 152, 152)
+                .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(470, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 650));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1190, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        if(nameField.getText().equals("") || phoneNumberField.getText().equals("") || emailField.getText().equals("")){
+        if (nameField.getText().equals("") || phoneNumberField.getText().equals("") || emailField.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Name, phone number and email are required!");
-        }else{
+        } else {
             StudentService service = new StudentService();
-            Student student = new Student(nameField.getText(), phoneNumberField.getText(), birthDateField.getText(), emailField.getText(), (String) majorComboBox.getSelectedItem(), (String)genderComboBox.getSelectedItem());
-            try{
+            Student student = new Student(nameField.getText(), phoneNumberField.getText(), dateField.getDate().toString(), emailField.getText(), (String) majorComboBox.getSelectedItem(), (String) genderComboBox.getSelectedItem());
+            System.out.println(dateField.getDate());
+            try {
                 service.save(student);
-            }catch(IOException ex){
+            } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
             model.students = service.getAll();
@@ -180,26 +186,22 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        if((int) idSpinner.getValue() > model.students.size() || (int) idSpinner.getValue() < 0 || (int) idSpinner.getValue() == 0){
+        if ((int) idSpinner.getValue() > model.students.size() || (int) idSpinner.getValue() < 0 || (int) idSpinner.getValue() == 0) {
             JOptionPane.showMessageDialog(this, "No student with id " + (int) idSpinner.getValue());
-        }else{
-            if((int) idSpinner.getValue() > 0 && (int) idSpinner.getValue() <= model.students.size()){
+        } else {
+            if ((int) idSpinner.getValue() > 0 && (int) idSpinner.getValue() <= model.students.size()) {
                 foreign_name = model.students.get((int) idSpinner.getValue() - 1).getName();
                 foreign_id = model.students.get((int) idSpinner.getValue() - 1).getID();
-                TranscriptFrame transcriptFrame = new TranscriptFrame();
-                transcriptFrame.show();
+                JInternalFrame tf = new TranscriptFrame();
+                tf.setVisible(true);
+                getParent().add(tf);
                 dispose();
             }
         }
     }//GEN-LAST:event_editButtonActionPerformed
 
-    private void birthDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthDateFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_birthDateFieldActionPerformed
-
     private void editButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editButtonMouseClicked
-        TranscriptFrame tf = new TranscriptFrame();
-        tf.show(true);
+
     }//GEN-LAST:event_editButtonMouseClicked
 
     /**
@@ -239,7 +241,7 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
-    private javax.swing.JTextField birthDateField;
+    private com.toedter.calendar.JDateChooser dateField;
     private javax.swing.JButton editButton;
     private javax.swing.JTextField emailField;
     private javax.swing.JComboBox<String> genderComboBox;

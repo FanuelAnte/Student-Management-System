@@ -4,6 +4,8 @@
  */
 package com.Transcript;
 
+import java.util.Date;
+
 /**
  *
  * @author nonyx

@@ -11,49 +11,56 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author nonyx
  */
 public class StudentService {
-    public void save(Student student) throws IOException{
-        String sql = String.format(
-        "INSERT INTO student(name, phone_number, date_of_birth, email, major, gender) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')", student.getName(), student.getPhoneNumber(), student.getBirthDate(), student.getEmail(), student.getMajor(), student.getGender());
+
+    public void save(Student student) throws IOException {
+        String sql
+                = "INSERT INTO student(name, phone_number, date_of_birth, email, major, gender) VALUES ("
+                + "'" + student.getName() + "', "
+                + "'" + student.getPhoneNumber() + "', "
+                + "'" + student.getBirthDate() + "', "
+                + "'" + student.getEmail() + "', "
+                + "'" + student.getMajor() + "', "
+                + "'" + student.getGender() + "')";
+
         DatabaseService service = new DatabaseService();
         service.execute(sql);
     }
-    
-    public ArrayList<Student> getAll(){
+
+    public ArrayList<Student> getAll() {
         ArrayList<Student> data = new ArrayList<>();
         String sql = "SELECT * FROM student ORDER BY id";
         DatabaseService service = new DatabaseService();
-        
-        try(
-                Connection conn = service.connect();
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(sql)
-        ){
-            while(rs.next()){
+
+        try (
+                 Connection conn = service.connect();  Statement stmt = conn.createStatement();  ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
                 data.add(
-                    new Student(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("phone_number"),
-                        rs.getString("date_of_birth"),
-                        rs.getString("email"),
-                        rs.getString("major"),
-                        rs.getString("gender"))
+                        new Student(
+                                rs.getInt("id"),
+                                rs.getString("name"),
+                                rs.getString("phone_number"),
+                                rs.getString("date_of_birth"),
+                                rs.getString("email"),
+                                rs.getString("major"),
+                                rs.getString("gender"))
                 );
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
-        }finally{
+        } finally {
             return data;
         }
     }
-    
-    public void update(Student student, String column, String value){
+
+    public void update(Student student, String column, String value) {
+        
         String sql = String.format(
                 "UPDATE student SET %s='%s' WHERE id=%id",
                 column,

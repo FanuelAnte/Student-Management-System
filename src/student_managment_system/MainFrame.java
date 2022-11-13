@@ -5,6 +5,7 @@
 package student_managment_system;
 
 import Design.*;
+import com.Transcript.StudentInformationFrame;
 import com.studentmanagementsystem.ui.StudentListInternalFrame;
 import java.awt.Color;
 import java.awt.Dimension;

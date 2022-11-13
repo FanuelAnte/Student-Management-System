@@ -8,7 +8,7 @@ CREATE TABLE public.student(
     id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
     "name" varchar NOT NULL,
     phone_number varchar NOT NULL,
-    date_of_birth varchar NOT NULL,
+    date_of_birth date NOT NULL,
     email varchar NOT NULL,
     major varchar NOT NULL,
     gender varchar NOT NULL,
