@@ -1,5 +1,6 @@
 CREATE DATABASE student_management;
 
+
 CREATE TABLE public.course (
 	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
 	code varchar NOT NULL,
