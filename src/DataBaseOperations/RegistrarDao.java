@@ -5,7 +5,7 @@
 package DataBaseOperations;
 
 import javax.swing.JOptionPane;
-import model.Registrar;
+import model_classes.Registrar;
 import java.sql.*;
 /**
  *

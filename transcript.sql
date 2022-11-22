@@ -7,6 +7,7 @@ CREATE DATABASE transcript;
 CREATE TABLE public.student(
     id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
     "name" varchar NOT NULL,
+
     phone_number varchar NOT NULL,
     "date" date NOT NULL,
     Email varchar NOT NULL,
@@ -17,6 +18,7 @@ CREATE TABLE public.student(
 
 CREATE TABLE public.report(
     id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+    student_ID varchar NOT NULL,
     course_title varchar NOT NULL,
     credit_hour int4 NOT NULL,
     letter_grade char NOT NULL,

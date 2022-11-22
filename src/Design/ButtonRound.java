@@ -16,6 +16,10 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
 public class ButtonRound extends JButton {
+    
+    public ButtonRound(int radius){
+        this.radius = radius;
+    }
 
     public boolean isOver() {
         return over;
@@ -108,6 +112,7 @@ public class ButtonRound extends JButton {
     private Color colorClick = new Color(63, 63, 65);
     private Color borderColor = new Color(63, 63, 65);
     private int radius = 80;
+    
 
     @Override
     protected void paintComponent(Graphics grphcs) {

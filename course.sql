@@ -23,6 +23,7 @@ CREATE TABLE public.enrolment(
     course int4 NOT NULL,
     enrolled boolean NOT NULL,
     CONSTRAINT enrolment_pk PRIMARY KEY (id)
+
 );  
 
 CREATE TABLE public.instructor(
@@ -38,17 +39,19 @@ CREATE TABLE public.instructor(
     CONSTRAINT instructor_pk PRIMARY KEY (id)
 );    
 
-CREATE TABLE public.student_list(
+CREATE TABLE public.student(
     id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
     first_name varchar NOT NULL,
     last_name varchar NOT NULL,
-    date_of_birth date NOT NULL,
+    full_name varchar NOT NULL,
+    "date" date NOT NULL,
+    date_of_birth date NOT NULL, 
     gender varchar NOT NULL,
-    department varchar NOT NULL,
-    "year" int4 NOT NULL,
-    semester int4 NOT NULL,
+    Major varchar NOT NULL,
+    department varchar NULL,
+    "year" int4 NULL,
+    semester int4 NULL,
     email varchar NOT NULL,
     phone_number int4 NOT NULL,
-    password varchar NOT NULL,
-    CONSTRAINT student_list_pk PRIMARY KEY (id)
+    CONSTRAINT student_pk PRIMARY KEY (id)
 );    
