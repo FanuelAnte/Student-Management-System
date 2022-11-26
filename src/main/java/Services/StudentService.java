@@ -23,7 +23,19 @@ public class StudentService {
     public void save(Student student) throws IOException {
         String sql
                 = String.format(
-                        "INSERT INTO student(first_name,last_name,full_name,Date,date_of_birth,gender,major,department,year,semester,email,phone_number) VALUES ('%s','%s','%s','%s','%s','%S','%S','%S','%S','%S','%S','%S')", student.getFirstName(), student.getLastName(), student.getFullName(), student.getDate(), student.getDate(), student.getGender(), student.getMajor(), student.getDepartment(), student.getYear(), student.getSemester(), student.getEmail(), student.getPhoneNumber());
+                        "INSERT INTO student(first_name,last_name,full_name,Date,date_of_birth,gender,major,department,year,semester,email,phone_number) VALUES ('%s','%s','%s','%s','%s','%S','%S','%S','%S','%S','%S','%S')", 
+                        student.getFirstName(), 
+                        student.getLastName(), 
+                        student.getFullName(), 
+                        student.getDate(), 
+                        student.getDate(), 
+                        student.getGender(), 
+                        student.getMajor(), 
+                        student.getDepartment(), 
+                        student.getYear(), 
+                        student.getSemester(), 
+                        student.getEmail(), 
+                        student.getPhoneNumber());
 
         DatabaseService service = new DatabaseService();
         service.execute(sql);
@@ -112,6 +124,21 @@ public class StudentService {
             ex.printStackTrace();
         }
         return instructor;
+    }
+        
+    public void addEnrolment(int id) {
+        ArrayList<Course> courseList = getCourseList();
+        
+        for (Course course: courseList){
+            String sql = String.format(
+                "INSERT INTO enrolment (student, course, enrolled)VALUES (%s, %s, %s)",
+                id,
+                course.getId(),
+                false);
+            DatabaseService service = new DatabaseService();
+            service.execute(sql);
+            System.out.println(id);
+        }
     }
         
     public void update(Student student, String column, String value) {

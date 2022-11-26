@@ -16,7 +16,10 @@ public class ConnectionProvider {
     public static Connection getCon() {
         try {
 //            Class.forName("com.postgresql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "32120832asdASD!@#");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:postgresql://localhost:5432/student_management", 
+                    "postgres", 
+                    "mysecretpassword");
             return con;
         } catch (Exception e) {
             return null;

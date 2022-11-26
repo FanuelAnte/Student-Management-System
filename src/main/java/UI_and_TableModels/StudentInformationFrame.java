@@ -138,6 +138,12 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Gender");
 
+        majorComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                majorComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -277,6 +283,8 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
 
             try {
                 service.save(student);
+                ArrayList<Student> st = service.getAll();
+                service.addEnrolment(st.get(st.size() - 1).getID());
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -308,6 +316,10 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
     private void editButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editButtonMouseClicked
 
     }//GEN-LAST:event_editButtonMouseClicked
+
+    private void majorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_majorComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_majorComboBoxActionPerformed
 
     /**
      * @param args the command line arguments

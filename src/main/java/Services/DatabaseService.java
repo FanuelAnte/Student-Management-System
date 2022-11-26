@@ -15,9 +15,9 @@ import java.sql.ResultSet;
  * @author user
  */
 public class DatabaseService {
-    private final String url = "jdbc:postgresql://localhost:5432/postgres";
+    private final String url = "jdbc:postgresql://localhost:5432/student_management";
     private final String user = "postgres";
-    private final String password = "32120832asdASD!@#";
+    private final String password = "mysecretpassword";
     
     public Connection connect() {
         Connection conn = null;
