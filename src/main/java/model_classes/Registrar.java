@@ -19,6 +19,18 @@ public class Registrar {
     private String confirmPassword;
     private String dateOfBirth;
     private String gender;
+    
+    public Registrar(){}
+
+    public Registrar(String firstName, String lastName, String email, String mobileNumber, String password, String dateOfBirth, String gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.mobileNumber = mobileNumber;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+    }
 
     /**
      * @return the id
@@ -145,7 +157,8 @@ public class Registrar {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public static String getFirstName(String firstName){
+
+    public static String getFirstName(String firstName) {
         return firstName;
     }
 
