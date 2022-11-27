@@ -21,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class CourseManagementTests {
     
+    //SM-35 Tests
+    
     @Test
     public void testEnrolmentBooleanConversion() {
        //Given
@@ -84,5 +86,26 @@ public class CourseManagementTests {
         //Then the enrollment status of the selected course changes either 
         //from enrolled to not enrolled or vice versa depending on the initial status.
         assertNotEquals(enrolmentNew.getEnrolled(), enrolment.getEnrolled());
+    }
+    
+    
+    //SM-91 Test
+        @Test
+    public void testEnrolmentAssignment() {
+        //Given that I have filled in all the required fields in the student registration form.
+        StudentEnrolmentService enrolmentService = new StudentEnrolmentService();
+        StudentService service = new StudentService();
+        
+        ArrayList<Enrolment> enrolmentList = enrolmentService.getEnrolmentList(7);
+        
+        //When I press the “Add Student” button.
+        service.assignEnrolment(7);
+        
+        ArrayList<Enrolment> enrolmentListNew = enrolmentService.getEnrolmentList(7);
+        
+        //Then the enrollment table gets automatically populated with a pairing of 
+        //the registered student and all the available courses with a default 
+        //enrollment status of “Not Enrolled”.
+        assertNotEquals(enrolmentListNew, enrolmentList);
     }
 }
