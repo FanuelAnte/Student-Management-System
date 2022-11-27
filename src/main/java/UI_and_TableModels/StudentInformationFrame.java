@@ -21,6 +21,9 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
     StudentTableModel model;
     public static String foreign_name;
     public static int foreign_id;
+    
+    //boolean variable for testing
+    public static boolean is_closed;
 
     //major list
     ArrayList<String> majorList = new ArrayList<String>();
@@ -355,6 +358,27 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
                 new StudentInformationFrame().setVisible(true);
             }
         });
+    }
+    
+    public void editButtonActionPerformed() {                                           
+        if ((int) idSpinner.getValue() > model.students.size() || (int) idSpinner.getValue() < 0 || (int) idSpinner.getValue() == 0) {
+            JOptionPane.showMessageDialog(this, "No student with id " + (int) idSpinner.getValue());
+        } else {
+            if ((int) idSpinner.getValue() > 0 && (int) idSpinner.getValue() <= model.students.size()) {
+                foreign_name = model.students.get((int) idSpinner.getValue() - 1).getFullName();
+                foreign_id = model.students.get((int) idSpinner.getValue() - 1).getID();
+                JInternalFrame tf = new TranscriptFrame();
+                tf.setVisible(true);
+                isTranscriptFrameClosed();
+                is_closed = tf.isClosed();
+                getParent().add(tf);
+                dispose();
+            }
+        }
+    } 
+    
+    public boolean isTranscriptFrameClosed(){
+        return is_closed;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

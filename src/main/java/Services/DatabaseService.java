@@ -17,12 +17,13 @@ import java.sql.ResultSet;
 public class DatabaseService {
     private final String url = "jdbc:postgresql://localhost:5432/student_management";
     private final String user = "postgres";
-    private final String password = "mysecretpassword";
+    private final String password = "chidori";
     
     public Connection connect() {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

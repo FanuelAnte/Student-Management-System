@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: UI_and_TableModels_Test.TranscriptFrameTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.455 s <<< FAILURE! - in UI_and_TableModels_Test.TranscriptFrameTest
+testTransitionToTranscriptFrame  Time elapsed: 2.447 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at UI_and_TableModels_Test.TranscriptFrameTest.testTransitionToTranscriptFrame(TranscriptFrameTest.java:23)
+

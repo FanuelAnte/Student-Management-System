@@ -17,12 +17,14 @@ import java.util.ArrayList;
  * @author nonyx
  */
 public class TranscriptService {
+    public Transcript saved_transcript;
 
     public void save(Transcript transcript) throws IOException {
         String sql = String.format(
                 "INSERT INTO report(student_id, course_title, credit_hour, letter_grade, grade_point) VALUES('%s','%s', '%s', '%s', '%s')", transcript.getStudentID(), transcript.getCourseTitle(), transcript.getCreditHour(), transcript.getLetterGrade(), transcript.getGradePoint());
         DatabaseService service = new DatabaseService();
         service.execute(sql);
+        saved_transcript = transcript;
     }
 
     public ArrayList<Transcript> getAll() {
