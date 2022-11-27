@@ -126,25 +126,24 @@ public class StudentService {
         return instructor;
     }
         
-    public void addEnrolment(int id) {
+    public void assignEnrolment(int id) {
         ArrayList<Course> courseList = getCourseList();
         
         for (Course course: courseList){
             String sql = String.format(
-                "INSERT INTO enrolment (student, course, enrolled)VALUES (%s, %s, %s)",
+                "INSERT INTO enrolment (student, course, enrolled) VALUES (%s, %s, %s)",
                 id,
                 course.getId(),
                 false);
             DatabaseService service = new DatabaseService();
             service.execute(sql);
-            System.out.println(id);
         }
     }
         
     public void update(Student student, String column, String value) {
 
         String sql = String.format(
-                "UPDATE student SET %s='%s' WHERE id=%id",
+                "UPDATE student SET %s='%s' WHERE id='%s'",
                 column,
                 value,
                 student.getID()
