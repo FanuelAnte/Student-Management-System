@@ -16,7 +16,8 @@ import javax.swing.ImageIcon;
  * @author ALE
  */
 public class StudentPanelFrame extends javax.swing.JFrame {
-
+    public static boolean is_closed;
+    
     /**
      * Creates new form MainPanelFrame
      */
@@ -61,7 +62,6 @@ public class StudentPanelFrame extends javax.swing.JFrame {
         );
 
         jMenu1.setBackground(new java.awt.Color(63, 63, 65));
-        jMenu1.setForeground(new java.awt.Color(0, 0, 0));
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home.png"))); // NOI18N
         jMenu1.setText("Home");
         jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -91,11 +91,6 @@ public class StudentPanelFrame extends javax.swing.JFrame {
             }
             public void menuSelected(javax.swing.event.MenuEvent evt) {
                 jMenu5MenuSelected(evt);
-            }
-        });
-        jMenu5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu5ActionPerformed(evt);
             }
         });
         jMenuBar2.add(jMenu5);
@@ -165,10 +160,6 @@ public class StudentPanelFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-
-    }//GEN-LAST:event_jMenu5ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         JInternalFrame sl = new UI_and_TableModels.StudentListInternalFrame();
@@ -240,6 +231,16 @@ public class StudentPanelFrame extends javax.swing.JFrame {
                 new StudentPanelFrame().setVisible(true);
             }
         });
+    }
+    
+    public void jMenu5MenuSelected() {                                    
+        JInternalFrame st = new StudentInformationFrame();
+        st.setVisible(true);
+        is_closed = st.isClosed();
+        this.studentPanel.add(st).setSize(new Dimension(1200,650));
+    }
+    public boolean isStudentInformationFrameClosed(){
+        return is_closed;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
