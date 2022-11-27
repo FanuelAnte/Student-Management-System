@@ -17,7 +17,7 @@ import javax.swing.ListSelectionModel;
 public class StudentListInternalFrame extends javax.swing.JInternalFrame {
 
     StudentListTableModel model;
-
+    
     /**
      * Creates new form StudentListInternalFrame
      */
@@ -115,7 +115,7 @@ public class StudentListInternalFrame extends javax.swing.JInternalFrame {
         this.getParent().add(frame);
         frame.toFront();
     }//GEN-LAST:event_editBtnActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton editBtn;

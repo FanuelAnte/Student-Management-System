@@ -17,7 +17,9 @@ import javax.swing.ImageIcon;
  * @author ALE
  */
 public class StudentPanelFrame extends javax.swing.JFrame {
-
+    
+    public static boolean isFrameClosed = true;
+    
     /**
      * Creates new form MainPanelFrame
      */
@@ -176,7 +178,18 @@ public class StudentPanelFrame extends javax.swing.JFrame {
         sl.setVisible(true);
         this.studentPanel.add(sl).setSize(new Dimension(1200,650));
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    
+    public void jMenuItem1ActionPerformed() {
+        JInternalFrame sl = new UI_and_TableModels.StudentListInternalFrame();
+        sl.setVisible(true);
+        isFrameClosed = sl.isClosed();
+        this.studentPanel.add(sl).setSize(new Dimension(1200,650));
+    }
+    
+    public boolean isStudentListFrameClosed() {
+        return isFrameClosed;
+    }
+    
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         JInternalFrame se = new StudentEnrolmentInternalFrame();
         se.setVisible(true);

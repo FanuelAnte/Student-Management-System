@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tests.CourseManagementTests" time="5.889" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tests.CourseManagementTests" time="0.037" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,9 +15,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-18.0.2.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\user\AppData\Local\Temp\surefire4339698535310089782\surefirebooter996607381017456178.jar C:\Users\user\AppData\Local\Temp\surefire4339698535310089782 2022-11-27T17-35-30_274-jvmRun1 surefire7619923291601172503tmp surefire_017284436709715855521tmp"/>
+    <property name="sun.java.command" value="C:\Users\user\AppData\Local\Temp\surefire3428308311867198504\surefirebooter17877888547990685374.jar C:\Users\user\AppData\Local\Temp\surefire3428308311867198504 2022-11-27T18-29-37_112-jvmRun1 surefire4166914433464973240tmp surefire_01377168037767910743tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="tests.CourseManagementTests"/>
+    <property name="test" value="tests.CourseManagementTests#testEnrolmentBooleanConversion"/>
     <property name="surefire.test.class.path" value="C:\Users\user\Desktop\Scripts and Stuff\BITS Projects\Group Assignment\Tests-Final\Student-Management-System\target\test-classes;C:\Users\user\Desktop\Scripts and Stuff\BITS Projects\Group Assignment\Tests-Final\Student-Management-System\target\classes;C:\Users\user\.m2\repository\unknown\binary\jcalendar-1.4\SNAPSHOT\jcalendar-1.4-SNAPSHOT.jar;C:\Users\user\.m2\repository\org\postgresql\postgresql\42.5.0\postgresql-42.5.0.jar;C:\Users\user\.m2\repository\org\checkerframework\checker-qual\3.5.0\checker-qual-3.5.0.jar;C:\Users\user\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\user\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\user\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\user\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\user\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\user\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\user\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\user\.m2\repository\unknown\binary\AbsoluteLayout-SNAPSHOT\SNAPSHOT\AbsoluteLayout-SNAPSHOT-SNAPSHOT.jar;C:\Users\user\.m2\repository\unknown\binary\AbsoluteLayout\SNAPSHOT\AbsoluteLayout-SNAPSHOT.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\user"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\user\AppData\Local\Temp\surefire4339698535310089782\surefirebooter996607381017456178.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\user\AppData\Local\Temp\surefire3428308311867198504\surefirebooter17877888547990685374.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="18.0.2.1+1-1"/>
@@ -58,9 +58,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="62.0"/>
   </properties>
-  <testcase name="testEnrolmentUpdate" classname="tests.CourseManagementTests" time="1.72"/>
-  <testcase name="testEnrolmentAssignment" classname="tests.CourseManagementTests" time="3.36"/>
-  <testcase name="testStudentEnrolment" classname="tests.CourseManagementTests" time="0.479"/>
-  <testcase name="testStudentListRetrieval" classname="tests.CourseManagementTests" time="0.315"/>
-  <testcase name="testEnrolmentBooleanConversion" classname="tests.CourseManagementTests" time="0.001"/>
+  <testcase name="testEnrolmentBooleanConversion" classname="tests.CourseManagementTests" time="0.029"/>
 </testsuite>
