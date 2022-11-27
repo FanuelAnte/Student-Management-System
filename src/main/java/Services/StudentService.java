@@ -19,6 +19,7 @@ import java.util.Date;
  * @author nonyx
  */
 public class StudentService {
+    public Student saved_student_information;
 
     public void save(Student student) throws IOException {
         String sql
@@ -27,6 +28,7 @@ public class StudentService {
 
         DatabaseService service = new DatabaseService();
         service.execute(sql);
+        saved_student_information = student;
     }
 
     public ArrayList<Student> getAll() {

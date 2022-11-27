@@ -54,7 +54,6 @@ public class MainFrame extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         studentRegistrationFormBtn.setBackground(new java.awt.Color(63, 63, 65));
         studentRegistrationFormBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -67,7 +66,6 @@ public class MainFrame extends javax.swing.JFrame {
                 studentRegistrationFormBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(studentRegistrationFormBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, 300, 60));
 
         transcriptInformationBtn.setBackground(new java.awt.Color(63, 63, 65));
         transcriptInformationBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -80,7 +78,6 @@ public class MainFrame extends javax.swing.JFrame {
                 transcriptInformationBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(transcriptInformationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 540, 300, 60));
 
         courseManagmentBtn.setBackground(new java.awt.Color(63, 63, 65));
         courseManagmentBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -93,12 +90,10 @@ public class MainFrame extends javax.swing.JFrame {
                 courseManagmentBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(courseManagmentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 300, 60));
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(63, 63, 65));
         jLabel4.setText("Welcome");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 220, -1));
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel5.setText("Logout");
@@ -108,16 +103,12 @@ public class MainFrame extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/studentRegistration.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/transcript.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 270, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/course-management-5-512 (1).png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 200, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimizeMac.png"))); // NOI18N
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -126,7 +117,6 @@ public class MainFrame extends javax.swing.JFrame {
                 jLabel6MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 20, -1, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/closeMac.png"))); // NOI18N
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -135,7 +125,66 @@ public class MainFrame extends javax.swing.JFrame {
                 jLabel7MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 20, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel7)
+                .addGap(27, 27, 27))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(215, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(400, 400, 400)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel1)
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabel3)
+                        .addGap(140, 140, 140)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(studentRegistrationFormBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(courseManagmentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(transcriptInformationBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(205, 205, 205))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)))
+                .addGap(133, 133, 133)
+                .addComponent(jLabel4)
+                .addGap(98, 98, 98)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(studentRegistrationFormBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(courseManagmentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(transcriptInformationBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
