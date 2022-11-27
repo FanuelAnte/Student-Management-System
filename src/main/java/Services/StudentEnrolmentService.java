@@ -150,7 +150,7 @@ public class StudentEnrolmentService {
         ArrayList<Enrolment> enrolmentList = new ArrayList<>();
 
         String sql = String.format(
-                "Select * from enrolment WHERE student = '%s'",
+                "Select * from enrolment WHERE student = '%s' ORDER BY id",
                 id);
         DatabaseService service = new DatabaseService();
 

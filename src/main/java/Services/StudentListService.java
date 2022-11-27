@@ -24,7 +24,11 @@ public class StudentListService {
         DatabaseService service = new DatabaseService();
 
         try (
-                 Connection conn = service.connect();  Statement stmt = conn.createStatement();  ResultSet rs = stmt.executeQuery(sql)) {
+            Connection conn = service.connect();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql)
+                ) {
+            
             while (rs.next()) {
                 studentList.add(
                         new Student(
