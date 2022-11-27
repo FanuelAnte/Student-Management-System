@@ -5,6 +5,7 @@
 package UI_and_TableModels;
 
 
+import com.mycompany.sms_system.SMS_System;
 import javax.swing.JInternalFrame;
 import java.awt.Dimension;
 import java.awt.Graphics;

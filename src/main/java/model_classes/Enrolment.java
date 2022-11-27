@@ -19,6 +19,10 @@ public class Enrolment {
     public Enrolment (){
     }
     
+    public Enrolment(boolean enrolled) {
+        this.enrolled = enrolled;
+    }
+    
     public Enrolment (
             int id,
             Student student,

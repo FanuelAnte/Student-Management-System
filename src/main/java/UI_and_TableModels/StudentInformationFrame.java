@@ -284,7 +284,7 @@ public class StudentInformationFrame extends javax.swing.JInternalFrame {
             try {
                 service.save(student);
                 ArrayList<Student> st = service.getAll();
-                service.addEnrolment(st.get(st.size() - 1).getID());
+                service.assignEnrolment(st.get(st.size() - 1).getID());
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
